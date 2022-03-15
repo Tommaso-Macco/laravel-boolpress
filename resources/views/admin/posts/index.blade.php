@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+      <h1 class="display-3 text-center">Posts!</h1>
         <a class="btn btn-dark mb-5" href="{{ route('admin.posts.create') }}">CREATE ONE!</a>
         <table class="table table-dark">
             <thead>

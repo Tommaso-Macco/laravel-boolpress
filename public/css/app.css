@@ -12178,3 +12178,10 @@ fieldset:disabled .btn {
   }
 }
 
+.show-info .info {
+  border: 2px solid #ced4da;
+  padding: 10px;
+  background-color: #212529;
+  color: #fff;
+}
+
