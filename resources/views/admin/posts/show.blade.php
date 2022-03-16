@@ -9,8 +9,9 @@
                 <h2 class="info mb-3"> {{ $post->title }} </h2>
                 <h6>Contenuto del post</h6>
                 <h4 class="info mb-3"> {{ $post->content }} </h4>
-                <h6>Chi ha creato e quali categorie ha il post</h6>
-                <h5 class="info mb-3"> -{{ $post->user->name }} <br> -{{ $post->category->category }} </h5>
+                <h6>Chi ha creato e quali categorie e tags ha il post</h6>
+                <h5 class="info mb-3"> -{{ $post->user->name }} <br> -{{ $post->category->category }} <br>@foreach($post->tags as $tag) - {{ $tag->name }} @endforeach
+                </h5>
             </div>
     </div>
 @endsection

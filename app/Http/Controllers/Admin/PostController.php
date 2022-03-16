@@ -80,8 +80,9 @@ class PostController extends Controller
     public function edit(post $post)
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.edit', compact("post", "categories"));
+        return view('admin.posts.edit', compact("post", "categories", "tags"));
     }
 
     /**
@@ -96,10 +97,12 @@ class PostController extends Controller
         $dati = $request->validate([
             "title" => "required|min:3",
             "content" => "required|",
-            "category_id" => "required"
+            "category_id" => "required",
+            "tags" => "required|exists:tags,id"
           ]);
           $post = post::findOrFail($id);
           $post->update($dati);
+          $post->tags()->sync($dati["tags"]);
           return redirect()->route('admin.posts.show', $post->id);
     }
 
