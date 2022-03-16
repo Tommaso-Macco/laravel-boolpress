@@ -28,8 +28,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $post = Post::all();
         $categories = Category::all();
-        return view('admin.posts.create', compact("categories"));
+        return view('admin.posts.create', compact("categories", "post"));
     }
 
     /**
@@ -43,7 +44,7 @@ class PostController extends Controller
         $dati = $request->validate([
             "title" => "required|min:3",
             "content" => "required|",
-            "category_id" => "nullable"
+            "category_id" => "required"
           ]);
           $post = new Post;
           $post->fill($dati);
@@ -72,9 +73,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(post $post)
     {
-    
+        $categories = Category::all();
+
+        return view('admin.posts.edit', compact("post", "categories"));
     }
 
     /**
@@ -86,7 +89,14 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dati = $request->validate([
+            "title" => "required|min:3",
+            "content" => "required|",
+            "category_id" => "required"
+          ]);
+          $post = post::findOrFail($id);
+          $post->update($dati);
+          return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
