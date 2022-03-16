@@ -16,6 +16,11 @@ class Post extends Model
         return $this->belongsTo("App\Category");
       }
 
+    // TAGS TO POSTS
+    public function tags() {
+        return $this->belongsToMany("App\Tag");
+      }
+
     // FILLABLE FOR PostController@Store
     protected  $fillable = [
         "title",
