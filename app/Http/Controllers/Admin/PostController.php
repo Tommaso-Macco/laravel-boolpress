@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,8 +30,9 @@ class PostController extends Controller
     public function create()
     {
         $post = Post::all();
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.create', compact("categories", "post"));
+        return view('admin.posts.create', compact("categories", "post", "tags"));
     }
 
     /**
@@ -44,7 +46,8 @@ class PostController extends Controller
         $dati = $request->validate([
             "title" => "required|min:3",
             "content" => "required|",
-            "category_id" => "required"
+            "category_id" => "required",
+            "tags" => "required"
           ]);
           $post = new Post;
           $post->fill($dati);
@@ -52,6 +55,7 @@ class PostController extends Controller
           $post->user_id = Auth::user()->id;
 
           $post->save();
+          $post->tags()->attach($dati["tags"]);
 
           return redirect()->route('admin.posts.index');
     }
