@@ -7,6 +7,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
 .show-info {
     .info {
         border: 2px solid #ced4da;
@@ -20,4 +22,14 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     padding: 6px 12px;
+}
+
+.index {
+    // style
+    .btn-danger {
+        color: #fff;
+    }
+}
+.index-style {
+    vertical-align: middle;
 }
