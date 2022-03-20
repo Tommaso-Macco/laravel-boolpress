@@ -15244,6 +15244,7 @@ fieldset:disabled .btn {
 
 .card-container-custom {
   display: flex;
+  padding-top: 50px;
 }
 
 .card-container-custom .card-max-height {

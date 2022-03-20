@@ -1982,12 +1982,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2013,7 +2007,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
 //
 //
 //
@@ -3352,25 +3345,23 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(0),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-        _vm._v("Card link"),
-      ]),
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "a",
+        {
+          staticClass: "card-link",
+          attrs: { href: "http://127.0.0.1:8000/admin/posts/" + _vm.post.id },
+        },
+        [_vm._v("Post link (admin)")]
+      ),
       _vm._v(" "),
       _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
         _vm._v("Another link"),
       ]),
-    ])
-  },
-]
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -3407,7 +3398,7 @@ var staticRenderFns = [
           [
             _c("div", { staticClass: "container-fluid" }, [
               _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-                _vm._v("Navbar"),
+                _vm._v("Laravel - BoolPress"),
               ]),
               _vm._v(" "),
               _c(
@@ -3439,7 +3430,7 @@ var staticRenderFns = [
                         "a",
                         {
                           staticClass: "nav-link active",
-                          attrs: { "aria-current": "page", href: "#" },
+                          attrs: { "aria-current": "page", href: "/" },
                         },
                         [_vm._v("Home")]
                       ),
@@ -3448,31 +3439,11 @@ var staticRenderFns = [
                     _c("li", { staticClass: "nav-item" }, [
                       _c(
                         "a",
-                        { staticClass: "nav-link", attrs: { href: "#" } },
-                        [_vm._v("Features")]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "nav-link", attrs: { href: "#" } },
-                        [_vm._v("Pricing")]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
                         {
-                          staticClass: "nav-link disabled",
-                          attrs: {
-                            href: "#",
-                            tabindex: "-1",
-                            "aria-disabled": "true",
-                          },
+                          staticClass: "nav-link",
+                          attrs: { href: "http://127.0.0.1:8000/login" },
                         },
-                        [_vm._v("Disabled")]
+                        [_vm._v("Admin")]
                       ),
                     ]),
                   ]),
@@ -3510,8 +3481,6 @@ var render = function () {
     "div",
     [
       _c("TheNavBar"),
-      _vm._v(" "),
-      _c("h1", [_vm._v("VUE FRONT END")]),
       _vm._v(" "),
       _c(
         "div",

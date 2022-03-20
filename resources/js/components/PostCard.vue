@@ -12,7 +12,7 @@
             <li class="list-group-item">{{ post.created_at }}</li>
         </ul>
         <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
+            <a v-bind:href="'http://127.0.0.1:8000/admin/posts/'+ post.id" class="card-link">Post link (admin)</a>
             <a href="#" class="card-link">Another link</a>
         </div>
     </div>

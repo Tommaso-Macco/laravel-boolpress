@@ -1,7 +1,6 @@
 <template>
   <div>
     <TheNavBar> </TheNavBar>
-    <h1>VUE FRONT END</h1>
     <div class="container card-container-custom">
       <PostCard v-for="post, i of posts" :key="i" :post="post"> 
       
