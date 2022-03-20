@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,6 +26,6 @@
     </div>
     <script src="{{ asset('js/vue.js') }}"></script>
 </body>
-</html> --}}
+</html>
 
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}

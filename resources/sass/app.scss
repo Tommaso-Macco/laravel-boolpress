@@ -33,3 +33,19 @@
 .index-style {
     vertical-align: middle;
 }
+
+.card-container-custom {
+    display: flex;
+    .card-max-height {
+        height: 125px;
+        overflow: hidden;
+    }
+}
+.separator {
+    height: 1px;
+    background-color:rgba(0, 0, 0, 0.125);;
+}
+
+.bg-white {
+    background-color: #fff;
+}

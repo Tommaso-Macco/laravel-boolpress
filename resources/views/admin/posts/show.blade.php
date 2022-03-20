@@ -3,7 +3,7 @@
 @php
     use Carbon\Carbon ;
     $hrMax = 12;
-    dd($post->updated_at->diffForHumans(Carbon::now()));
+    // dd($post->updated_at->diffForHumans(Carbon::now()));
 @endphp
 
 @section('content')
