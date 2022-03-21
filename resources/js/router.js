@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./pages/Home.vue";
+import PostShow from "./pages/PostShow.vue"
 // import Contacts from "./pages/Contacts.Vue"
 
 Vue.use(VueRouter);
@@ -12,7 +13,15 @@ const router = new VueRouter({
         component: Home,
         name: "home.index",
         meta : {title: "Home Page", linkText: "Home"} 
-        },
+    },
+    
+    
+    { 
+        path: "/posts/:post", 
+        component: PostShow, 
+        name: "posts.show", 
+        meta : {title: "Post Info", linkText: "Post Info"} 
+    }
         
 
         // { 
@@ -21,14 +30,6 @@ const router = new VueRouter({
         // name: "contacts.index", 
         // meta : {title: "Contacts Page", linkText: "Contacts"} 
         // },
-
-
-        // { 
-        //     path: "/posts/:post", 
-        //     component: PostShow, 
-        //     name: "posts.show", 
-        //     meta : {title: "Post Info", linkText: "Post Info"} 
-        //     }
     ],
 });
 

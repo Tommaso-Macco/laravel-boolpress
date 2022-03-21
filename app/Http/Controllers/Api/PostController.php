@@ -36,4 +36,10 @@ class PostController extends Controller
 
     //     return response()->json($newPost);
     // }
+    public function show($id) {
+        $posts = Post::findOrFail($id);
+        $posts->load('category', 'user', 'tags');
+
+        return response()->json($posts);
+    }
 }
