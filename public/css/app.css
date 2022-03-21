@@ -15244,6 +15244,7 @@ fieldset:disabled .btn {
 
 .card-container-custom {
   display: flex;
+  justify-content: space-around;
   padding-top: 50px;
 }
 

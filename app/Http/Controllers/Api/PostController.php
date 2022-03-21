@@ -11,9 +11,9 @@ class PostController extends Controller
 {
     public function index() {
         // $tags = Tag::all(); 
-        $posts = Post::all();
+        $posts = Post::paginate(4);
         // LOAD PER METTERE DENTRO POST ALTRE TABELLE
-        $posts->load('category', 'user');
+        $posts->load('category', 'user', 'tags');
 
         // return response()->json([
         //     "dataRichiesta" => now(),

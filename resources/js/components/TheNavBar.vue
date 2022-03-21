@@ -10,7 +10,8 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <!-- <a class="nav-link active" aria-current="page" @click="$router.push({name: 'home.index'})">Home</a> -->
+                                <router-link class="nav-link active" :to="{ name: 'home.index' }">Home</router-link>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="http://127.0.0.1:8000/login">Admin</a>
@@ -25,7 +26,14 @@
 
 <script>
 export default {
-
+    // data() {
+    //     return {
+    //         routes : []
+    //     }
+    // },
+    // mounted() {
+    //    this.routes = this.$router.getRoutes();
+    // }
 }
 </script>
 
