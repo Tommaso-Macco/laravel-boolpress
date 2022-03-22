@@ -10,7 +10,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ post.category.category }}</li>
       <li class="list-group-item">{{ post.user.name }}</li>
-      <li class="list-group-item">{{ post.created_at }}</li>
+      <li class="list-group-item">{{ createdAt() }}</li>
     </ul>
 
     <ul class="list-group list-group-flush">
@@ -26,6 +26,7 @@
 
 <script>
 import axios from "axios";
+import dayjs from "dayjs";
 
 export default {
   data() {
@@ -39,6 +40,15 @@ export default {
       const resp = await axios.get("/api/posts/" + this.$route.params.post);
       this.post = resp.data;
     },
+
+    createdAt(){
+      return dayjs(this.post.createdAt).format("DD/MM/YY HH:mm")
+    },
+
+    updateAt(){
+      return dayjs(this.post.updateAt).format("DD/MM/YY HH:mm")
+    },
+
   },
   mounted() {
     this.fetchPost();
