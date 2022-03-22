@@ -17,7 +17,7 @@
                                 <a class="nav-link" href="http://127.0.0.1:8000/login">Admin</a>
                             </li>
                             <li class="nav-item">
-                                <!-- <router-link class="nav-link active" :to="{ name: 'posts.show' }">show</router-link> -->
+                                <router-link class="nav-link active" :to="{ name: 'contacts.index' }">Contacts Us!</router-link>
                             </li>
                         </ul>
                     </div>
