@@ -8,6 +8,7 @@ use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -18,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::withTrashed()->get();
         return view('admin.posts.index', compact("posts"));
     }
 
@@ -47,10 +48,15 @@ class PostController extends Controller
             "title" => "required|min:3",
             "content" => "required|",
             "category_id" => "required",
-            "tags" => "required"
+            "tags" => "required",
+            "coverImg" => "nullable|max:1000"
           ]);
           $post = new Post;
           $post->fill($dati);
+
+          if (key_exists('coverImg', $dati)) {
+              $post->coverImg = Storage::put('postImage', $dati['coverImg']);
+          }
 
           $post->user_id = Auth::user()->id;
 
@@ -94,14 +100,30 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $allDati = $request->all();
+        // dd($allDati);
         $dati = $request->validate([
             "title" => "required|min:3",
             "content" => "required|",
             "category_id" => "required",
-            "tags" => "required|exists:tags,id"
+            "tags" => "required|exists:tags,id",
+            "coverImg" => "nullable|image|max:1000"
           ]);
           $post = post::findOrFail($id);
           $post->update($dati);
+
+          if (key_exists('coverImg', $dati)) {
+              
+            if ($post->coverImg) {
+                storage::delete($post->coverImg);
+            }
+            $coverImg = Storage::put("postImage", $dati['coverImg']);
+
+            $post->coverImg = $coverImg;
+            $post->save();
+
+          }
+
           $post->tags()->sync($dati["tags"]);
           return redirect()->route('admin.posts.show', $post->id);
     }
@@ -115,7 +137,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-        $post->tags()->detach();
+
+        // if ($post->coverImg) {
+        //     storage::delete($post->coverImg);
+        // }
+        // $post->tags()->detach();
+
+
+        // SOFT DELETE
         $post->delete();
         
         return redirect()->route('admin.posts.index');

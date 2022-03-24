@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="display-3 text-center">Create new Post!</h1>
-        <form action="{{ route('admin.posts.store') }}" method="post">
+        <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
 
@@ -13,7 +13,7 @@
 
               <input type="text" value="{{ old('title') }}" name="title" class="form-control" >
               @error('title')
-                  Hai sbagliato
+                  {{ $message }}
               @enderror
 
               <div id="emailHelp" class="form-text">Metti il titolo del tuo nuovo Post!</div>
@@ -21,12 +21,27 @@
             </div>
 
 
+            {{-- IMAGE UPLOAD --}}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Upload Image</label>
+  
+                <input type="file" name="coverImg" class="form-control" >
+                @error('coverImg')
+                    {{ $message }}
+
+                @enderror
+  
+                <div id="emailHelp" class="form-text">Carica l'immagine del Post</div>
+  
+              </div>
+
+
             {{-- CONTENT SECTION (TEXTAREA)  --}}
             <div class="mb-3">
                 <label class="form-label">Post Content</label>
                 <textarea name="content" class="form-control" cols="30" rows="10">{{ old('content') }}</textarea>
                 @error('content')
-                    Hai sbagliato
+                    {{ $message }}
                 @enderror
             </div>
 
@@ -41,6 +56,9 @@
                     {{ $category->category }}</option>
 
                 @endforeach  
+                @error('category_id')
+                    {{ $message }}
+                @enderror
 
             </select>
 
@@ -60,10 +78,13 @@
                      {{ $tag->name }}
                     </label>
                   </div>
+                        @error('tags[]')
+                        {{ $message }}
+                        @enderror
                 @endforeach
             </div>
 
-
+            
             {{-- SUBMIT BUTTON TO STORE --}}
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>

@@ -1,6 +1,7 @@
 <template>
   <div class="card" style="width: 18rem">
-    <img class="card-img-top" src="https://reactnative-examples.com/wp-content/uploads/2022/02/default-loading-image.png" alt="Card image cap" />
+    <img v-if="post.coverImg" v-bind:src=" 'storage/' + post.coverImg" class="card-img-top"/> 
+    <img v-else class="card-img-top" src="https://reactnative-examples.com/wp-content/uploads/2022/02/default-loading-image.png" alt="Card image cap" />
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>
       <p class="card-text" v-html="post.content">

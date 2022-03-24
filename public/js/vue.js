@@ -1941,6 +1941,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     post: Object
@@ -1958,6 +1960,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2248,6 +2276,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -4254,13 +4283,18 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-    _c("img", {
-      staticClass: "card-img-top",
-      attrs: {
-        src: "https://reactnative-examples.com/wp-content/uploads/2022/02/default-loading-image.png",
-        alt: "...",
-      },
-    }),
+    _vm.post.coverImg
+      ? _c("img", {
+          staticClass: "card-img-top",
+          attrs: { src: "storage/" + _vm.post.coverImg },
+        })
+      : _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src: "https://reactnative-examples.com/wp-content/uploads/2022/02/default-loading-image.png",
+            alt: "",
+          },
+        }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.post.title))]),
@@ -4273,10 +4307,6 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("ul", { staticClass: "list-group list-group-flush" }, [
-      _c("li", { staticClass: "list-group-item" }, [
-        _vm._v(_vm._s(_vm.post.category.category)),
-      ]),
-      _vm._v(" "),
       _c("li", { staticClass: "list-group-item" }, [
         _vm._v(_vm._s(_vm.post.user.name)),
       ]),
@@ -4333,103 +4363,139 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-white" }, [
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "nav",
-        { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-        [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-              _vm._v("Laravel - BoolPress"),
-            ]),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarNav" },
-              },
-              [
-                _c("ul", { staticClass: "navbar-nav" }, [
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "nav-link active",
-                          attrs: { to: { name: "home.index" } },
-                        },
-                        [_vm._v("Home")]
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "nav-link active",
-                          attrs: { to: { name: "contacts.index" } },
-                        },
-                        [_vm._v("Contacts Us!")]
-                      ),
-                    ],
-                    1
-                  ),
-                ]),
-              ]
-            ),
-          ]),
-        ]
-      ),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-bs-toggle": "collapse",
-          "data-bs-target": "#navbarNav",
-          "aria-controls": "navbarNav",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation",
-        },
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link",
-          attrs: { href: "http://127.0.0.1:8000/login" },
-        },
-        [_vm._v("Admin")]
-      ),
+    return _c("div", { staticClass: "bg-red-white" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "nav",
+          { staticClass: "navbar navbar-expand-lg navbar-light bg-red-white" },
+          [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c(
+                "a",
+                { staticClass: "navbar-brand mr-10", attrs: { href: "#" } },
+                [_vm._v("Laravel BoolPress")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "navbar-brand", attrs: { href: "/admin" } },
+                [_vm._v("Admin")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "navbar-brand", attrs: { href: "/admin" } },
+                [_vm._v("Admin")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "navbar-brand", attrs: { href: "/admin" } },
+                [_vm._v("Admin")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "navbar-toggler",
+                  attrs: {
+                    type: "button",
+                    "data-bs-toggle": "collapse",
+                    "data-bs-target": "#navbarNavDropdown",
+                    "aria-controls": "navbarNavDropdown",
+                    "aria-expanded": "false",
+                    "aria-label": "Toggle navigation",
+                  },
+                },
+                [_c("span", { staticClass: "navbar-toggler-icon" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse custom-right",
+                  attrs: { id: "navbarNavDropdown" },
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav" }, [
+                    _c("li", { staticClass: "nav-item dropdown" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            href: "#",
+                            id: "navbarDropdownMenuLink",
+                            role: "button",
+                            "data-bs-toggle": "dropdown",
+                            "aria-expanded": "false",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                Dropdown link\n              "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: {
+                            "aria-labelledby": "navbarDropdownMenuLink",
+                          },
+                        },
+                        [
+                          _c("li", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "#" },
+                              },
+                              [_vm._v("Action")]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "#" },
+                              },
+                              [_vm._v("Another action")]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "#" },
+                              },
+                              [_vm._v("Something else here")]
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+            ]),
+          ]
+        ),
+      ]),
     ])
   },
 ]
@@ -4710,13 +4776,18 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-    _c("img", {
-      staticClass: "card-img-top",
-      attrs: {
-        src: "https://reactnative-examples.com/wp-content/uploads/2022/02/default-loading-image.png",
-        alt: "Card image cap",
-      },
-    }),
+    _vm.post.coverImg
+      ? _c("img", {
+          staticClass: "card-img-top",
+          attrs: { src: "storage/" + _vm.post.coverImg },
+        })
+      : _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src: "https://reactnative-examples.com/wp-content/uploads/2022/02/default-loading-image.png",
+            alt: "Card image cap",
+          },
+        }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.post.title))]),

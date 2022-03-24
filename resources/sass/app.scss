@@ -51,3 +51,26 @@
 .bg-white {
     background-color: #fff;
 }
+
+.card-custom {
+
+    .card-header{
+        background-color: rgb(46, 46, 46);
+        color: #fff;
+    }
+    .card-body {
+        background-color: #ab6b6b;
+    }
+}
+
+.custom-right{
+    flex-direction: row-reverse;
+}
+
+.bg-red-white {
+    background-color: #ab6b6b;
+}
+
+.nav-bar-custom {
+    background-color: #ab6b6b
+}

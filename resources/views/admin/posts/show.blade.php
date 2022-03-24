@@ -25,6 +25,7 @@
 
                     {{-- DA FARE: se l'ultima modifca supera le 12 ore cambiarla nella data --}}
                 </h5>
+                <img src="{{asset('storage/' . $post->coverImg)}}" alt="">
             </div>
             @include('partials.delete-btn', [
                 'classBtn' => 'btn btn-danger'

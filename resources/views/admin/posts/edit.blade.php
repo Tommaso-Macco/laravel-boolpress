@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="display-3 text-center">Create new Post!</h1>
-        <form action="{{ route('admin.posts.update', $post) }}" method="post">
+        <form action="{{ route('admin.posts.update', $post) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method("PATCH")
 
@@ -13,12 +13,26 @@
 
               <input type="text" value="{{ old("name", $post->title) }}" name="title" class="form-control" >
               @error('title')
-                  Hai sbagliato
+                  {{ $message }}
               @enderror
 
               <div id="emailHelp" class="form-text">Metti il titolo del tuo nuovo Post!</div>
 
             </div>
+
+            {{-- IMAGE UPLOAD --}}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Upload Image</label>
+  
+                <input type="file" name="coverImg" class="form-control" >
+                @error('coverImg')
+                  {{ $message }}
+              @enderror
+                <span>{{ $post->coverImg }}</span>
+  
+                <div id="emailHelp" class="form-text">Carica l'immagine del Post</div>
+  
+              </div>
 
 
             {{-- CONTENT SECTION (TEXTAREA)  --}}
@@ -26,8 +40,8 @@
                 <label class="form-label">Post Content</label>
                 <textarea name="content" class="form-control" cols="30" rows="10">{{ old('content', $post->content) }}</textarea>
                 @error('content')
-                    Hai sbagliato
-                @enderror
+                  {{ $message }}
+              @enderror
             </div>
 
 
@@ -64,6 +78,9 @@
                     </label>
                   </div>
                 @endforeach
+                @error('tags[]')
+                  {{ $message }}
+              @enderror
             </div>
 
             {{-- SUBMIT BUTTON TO STORE --}}
