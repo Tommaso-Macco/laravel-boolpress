@@ -33,10 +33,8 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a id="logout-link" href="#" @click.prevent="logout">logout</a>
                 </li>
               </ul>
             </li>
@@ -62,6 +60,19 @@ export default {
       const resp = await axios.get('api/user');
       // console.log(resp);
       this.user = resp.data
+    },
+
+    // LOGOUT FUNCTION
+    logout(event) {
+      if (confirm("Want to log-out?")) {
+        axios.get('api/logout').then(resp => {
+          localStorage.removeItem('auth_token');
+          delete axios.defaults.headers.common['Authorization'];
+        })
+        .catch(er => {
+          console.log(er);
+        });
+      }
     }
   },
 

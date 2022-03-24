@@ -2017,8 +2017,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2052,6 +2050,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    // LOGOUT FUNCTION
+    logout: function logout(event) {
+      if (confirm("Want to log-out?")) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/logout').then(function (resp) {
+          localStorage.removeItem('auth_token');
+          delete axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.headers.common['Authorization'];
+        })["catch"](function (er) {
+          console.log(er);
+        });
+      }
     }
   },
   mounted: function mounted() {
@@ -4513,7 +4522,30 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(1),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "dropdown-menu",
+                    attrs: { "aria-labelledby": "navbarDropdownMenuLink" },
+                  },
+                  [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          attrs: { id: "logout-link", href: "#" },
+                          on: {
+                            click: function ($event) {
+                              $event.preventDefault()
+                              return _vm.logout.apply(null, arguments)
+                            },
+                          },
+                        },
+                        [_vm._v("logout")]
+                      ),
+                    ]),
+                  ]
+                ),
               ]),
             ]),
           ]),
@@ -4537,37 +4569,6 @@ var staticRenderFns = [
         }),
       ]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      {
-        staticClass: "dropdown-menu",
-        attrs: { "aria-labelledby": "navbarDropdownMenuLink" },
-      },
-      [
-        _c("li", [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Action"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Another action"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Something else here"),
-          ]),
-        ]),
-      ]
-    )
   },
 ]
 render._withStripped = true

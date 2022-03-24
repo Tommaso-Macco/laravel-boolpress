@@ -18,6 +18,8 @@ Route::middleware('auth')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+route::get('logout', 'Api\AuthController@logout')->middleware('auth:api');
+
 route::get("/posts", "Api\PostController@index");
 Route::get("/posts/{post}", "Api\PostController@show");
 Route::post("/contacts", "Api\ContactController@store");
