@@ -21,7 +21,7 @@ const router = new VueRouter({
         path: "/posts/:post", 
         component: PostShow, 
         name: "posts.show", 
-        meta : {title: "Post Info", linkText: "Post Info"} 
+        meta : {title: "Post Info"} 
     },
         
 
